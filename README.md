@@ -152,8 +152,20 @@ docker run -d \
   --name homeledger \
   irving1flores/homeledger:latest
 
+
+
 # Then open http://localhost:3000 and log in with the email/password above.
 ```
+bash
+# 1. 停止容器
+docker compose down
+
+# 2. 將 ./data 的擁有者改為 UID 1000
+sudo chown -R 1000:1000 ./data
+
+# 3. 重新啟動容器
+docker compose up -d
+
 
 **What each flag does** (only `JWT_SECRET` and `ADMIN_PASSWORD` are required — omit the rest to take the defaults):
 
